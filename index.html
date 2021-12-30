@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>toan ly hoa</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<H3>diem toan:</H3>
+<input type="number" ng-model="toan" id="toan">
+<br>
+<h3>diem ly:</h3>
+<input type="number" ng-model="ly" id="ly">
+<h3>diem hoa:</h3>
+<input type="number" ng-model="hoa" id="hoa">
+<br>
+<input type="button" value="tinh" ng-click="Calc()">
+<br>
+<h3>trung binh: {{tb}}</h3>
+<h3>tong: {{all}}</h3>
+
+<script>
+  var app = angular.module('myApp',[]);
+  app.controller('myCtrl',function ($scope) {
+    $scope.toan = 0;
+    $scope.ly = 0;
+    $scope.hoa = 0;
+    $scope.tb = 0;
+    $scope.all = 0;
+    $scope.Calc = function () {
+      $scope.all = $scope.toan + $scope.ly + $scope.hoa;
+      $scope.tb = $scope.all/3;
+    }
+  });
+</script>
+</body>
+</html>
